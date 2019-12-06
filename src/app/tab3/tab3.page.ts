@@ -18,9 +18,10 @@ export class Tab3Page {
     console.log(this.Data);
   }
 
-  async logSleepiness()
-  const modal = await this.modalController.create({
-    component: SleepinessModalPage
-  });
-  return await modal.present();
+  async logSleepiness(){
+    const modal = await this.modalController.create({
+      component: SleepinessModalPage
+    });
+    return await modal.present();
+  }
 }

@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>sleepiness-modal</ion-title>
+    <ion-title>Sleepiness Log</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-row>
 
+    <ion-button class="center" (click)="logSleepinessData()">Save</ion-button>
+  </ion-row>
+
+  <ion-row>
+    <ion-button class="center" (click)="dismiss()">Close</ion-button>
+  </ion-row>
 </ion-content>

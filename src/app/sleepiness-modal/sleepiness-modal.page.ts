@@ -17,4 +17,10 @@ export class SleepinessModalPage implements OnInit {
   ngOnInit() {
   }
 
+  dismiss() {
+    this.modalController.dismiss();
+  }
+
+  logSleepinessData(){}
+
 }
