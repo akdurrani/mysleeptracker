@@ -6,4 +6,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content padding>
+  <ion-row>
+   <ion-button class="center" (click)="logSleepiness()">Log Sleepiness</ion-button>
+   </ion-row>
+   <ion-row><p></p></ion-row>
+   <ion-row>Past Sleepiness Logs</ion-row>
+   <ion-row><p></p></ion-row>
+   <ion-row>
+     <ion-list *ngFor="let sleep of Data; let i=index">
+          <ion-item>
+            <ion-label>{{i+1}}. {{sleep.summaryString()}}</ion-label>
+          </ion-item>
+
+    </ion-list>
+   </ion-row>
+
+
+</ion-content>

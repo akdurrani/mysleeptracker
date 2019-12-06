@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs-routing.module';
 import { OvernightModalPageModule } from '../overnight-modal/overnight-modal.module';
 import { LogAlertPageModule } from '../log-alert/log-alert.module';
+import { SleepinessModalPageModule } from '../sleepiness-modal/sleepiness-modal.module';
 
 import { TabsPage } from './tabs.page';
 
@@ -16,7 +17,8 @@ import { TabsPage } from './tabs.page';
     FormsModule,
     TabsPageRoutingModule,
     OvernightModalPageModule,
-    LogAlertPageModule
+    LogAlertPageModule,
+    SleepinessModalPageModule
   ],
   declarations: [TabsPage]
 })

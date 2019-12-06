@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'log-alert',
     loadChildren: () => import('./log-alert/log-alert.module').then( m => m.LogAlertPageModule)
+  },
+  {
+    path: 'sleepiness-modal',
+    loadChildren: () => import('./sleepiness-modal/sleepiness-modal.module').then( m => m.SleepinessModalPageModule)
   }
 ];
 @NgModule({
