@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Overnight Sleep Log</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+     <ion-list>
+       <ion-item-divider></ion-item-divider>
+       <ion-item>
+         <ion-label>Start Time</ion-label>
+         <ion-datetime id="start" display-format="h:mm A" picker-format="h:mm A" placeholder="Select Start Time"  [(ngModel)]="startTime" (ionChange)="saveStart()"></ion-datetime>
+       </ion-item>
+       <ion-item>
+         <ion-label>End Time</ion-label>
+         <ion-datetime id="end" display-format="h:mm A" picker-format="h:mm A" placeholder="Select End Time" [(ngModel)]="endTime" (ionChange)="saveEnd()"></ion-datetime>
+       </ion-item>
+      </ion-list>
+  </ion-row>
+  <ion-row>
+
+    <ion-button class="center" (click)="logOvernightData()">Save</ion-button>
+  </ion-row>
+
+  <ion-row>
+    <ion-button class="center" (click)="dismiss()">Close</ion-button>
+  </ion-row>
+
+</ion-content>
