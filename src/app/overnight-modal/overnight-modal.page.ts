@@ -84,16 +84,16 @@ export class OvernightModalPage implements OnInit {
             let overnightData = new OvernightSleepData(this.getStartTime(), this.getEndTime());
             console.log(this.startTime);
             this.sleepService.logOvernightData(overnightData);
-            console.log(SleepService.AllSleepData[0].dateString());
-
+            //console.log(SleepService.AllOvernightData[2].dateString());
+            this.dismiss();
           }
         }, {
           text: 'Undo',
           icon: 'undo',
           //role: 'cancel',
           handler: () => {
-            console.log('Undo clicked');
-
+            console.log('Undo clicked, nothing saved');
+            //console.log(SleepService.AllOvernightData[2].dateString());
           }
         }
       ]

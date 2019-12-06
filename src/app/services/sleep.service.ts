@@ -28,15 +28,7 @@ export class SleepService {
   public logOvernightData(sleepData:OvernightSleepData) {
   	SleepService.AllSleepData.push(sleepData);
   	SleepService.AllOvernightData.push(sleepData);
-    console.log('inside logOvernightData');
-    console.log(sleepData);
   }
-  // public logOvernightData(sleepStart:Date, sleepEnd:Date) {
-  // 	SleepService.AllSleepData.push(new SleepData());
-  // 	SleepService.AllOvernightData.push(new OvernightSleepData(sleepStart, sleepEnd));
-  //   console.log('inside logOvernightData');
-  //   console.log(SleepService.AllOvernightData[0]);
-  // }
 
   public logSleepinessData(sleepData:StanfordSleepinessData) {
   	SleepService.AllSleepData.push(sleepData);
