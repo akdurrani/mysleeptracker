@@ -14,7 +14,16 @@ export class Tab3Page {
   Data:StanfordSleepinessData[] = [];
 
   constructor(private modalController: ModalController, public sleepService:SleepService) {
-    this.Data = SleepService.AllSleepinessData;
+    //this.Data = SleepService.AllSleepinessData;
+    this.sleepService.getAllSleepinessData().then(result => {
+      console.log(result);
+      if (result) {
+        Array.from(result).map((item)=>{
+          console.log(item);
+          this.Data.push(new StanfordSleepinessData(item));
+        });
+      }
+    });
     console.log(this.Data);
   }
 

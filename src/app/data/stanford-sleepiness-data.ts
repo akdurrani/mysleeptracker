@@ -4,7 +4,7 @@
 import { SleepData } from './sleep-data';
 
 export class StanfordSleepinessData extends SleepData {
-	public static ScaleValues = [undefined,//Sleepiness scale starts at 1
+	public static ScaleValues = [//undefined,//Sleepiness scale starts at 1
 	'Feeling active, vital, alert, or wide awake', //1
 	'Functioning at high levels, but not at peak; able to concentrate', //2
 	'Awake, but relaxed; responsive but not fully alert', //3
@@ -15,13 +15,15 @@ export class StanfordSleepinessData extends SleepData {
 
 	private loggedValue:number;
 
-	constructor(loggedValue:number, loggedAt:Date = new Date()) {
-		super();
-		this.loggedValue = loggedValue;
-		this.loggedAt = loggedAt;
+	//constructor(loggedValue:number, loggedAt:Date) {
+	constructor(objectModel:Object){
+		super(new Date(objectModel['loggedAt']));
+		//super();
+		this.loggedValue = objectModel['loggedValue'];
+		this.id = objectModel.id;
 	}
 
 	summaryString():string {
-		return this.loggedValue + ": " + StanfordSleepinessData.ScaleValues[this.loggedValue];
+		return "Sleepiness Degree #" + (this.loggedValue+1) + ": " + StanfordSleepinessData.ScaleValues[this.loggedValue];
 	}
 }

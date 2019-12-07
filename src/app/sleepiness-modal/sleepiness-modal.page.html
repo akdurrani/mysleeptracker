@@ -4,9 +4,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-row>
+<ion-content class="ion-padding">
+  <ion-row >
 
+          <ion-label class="center">Sleepiness Degree</ion-label>
+          </ion-row>
+          <ion-row>
+          <ion-select class="center" #C (ionChange)="saveSleepiness(C.value)" placeholder="Select Sleepiness Degree">
+            <ion-select-option *ngFor="let degree of Data; let i=index" value="{{i+1}}"><ion-label class="ion-text-wrap">{{i+1}}. {{degree}}</ion-label></ion-select-option>
+          </ion-select>
+
+  </ion-row>
+  <ion-row>
     <ion-button class="center" (click)="logSleepinessData()">Save</ion-button>
   </ion-row>
 

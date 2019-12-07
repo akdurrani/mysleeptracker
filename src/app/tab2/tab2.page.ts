@@ -13,7 +13,16 @@ export class Tab2Page {
   Data:OvernightSleepData[] = [];
 
   constructor(private modalController: ModalController, public sleepService:SleepService) {
-    this.Data = SleepService.AllOvernightData;
+    //this.Data = SleepService.AllOvernightData;
+    this.sleepService.getAllOvernightData().then(result => {
+      console.log(result);
+      if (result) {
+        Array.from(result).map((item)=>{
+          console.log(item);
+          this.Data.push(new OvernightSleepData(item));
+        });
+      }
+    });
     console.log(this.Data);
   }
 

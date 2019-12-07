@@ -8,12 +8,15 @@ import { SleepinessModalPageRoutingModule } from './sleepiness-modal-routing.mod
 
 import { SleepinessModalPage } from './sleepiness-modal.page';
 
+import { LogAlertPageModule } from '../log-alert/log-alert.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SleepinessModalPageRoutingModule
+    SleepinessModalPageRoutingModule,
+    LogAlertPageModule
   ],
   declarations: [SleepinessModalPage]
 })

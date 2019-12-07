@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <ion-row>
    <ion-button class="center" (click)="logOvernight()">Log Overnight Sleep</ion-button>
    </ion-row>
@@ -16,7 +16,7 @@
    <ion-row>
      <ion-list *ngFor="let sleep of Data; let i=index">
           <ion-item>
-            <ion-label>{{i+1}}. {{sleep.dateString()}}<br>You slept {{sleep.summaryString()}}</ion-label>
+            <ion-label class="ion-text-wrap">{{i+1}}. {{sleep.dateString()}}, you slept {{sleep.summaryString()}}</ion-label>
           </ion-item>
 
     </ion-list>

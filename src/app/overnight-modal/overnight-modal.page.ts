@@ -63,10 +63,10 @@ export class OvernightModalPage implements OnInit {
     // else if(this.getStartTime().getTime()>this.getEndTime().getTime())
     //   this.showErrorAlert();
     else{
-      if(!this.undoInputToast()){
-        const overnightData = new OvernightSleepData(this.getStartTime(), this.getEndTime());
-        console.log(overnightData);
-      }
+      this.undoInputToast();
+      //  const overnightData = new OvernightSleepData(this.getStartTime(), this.getEndTime());
+        //console.log(overnightData);
+
     }
 
   }
@@ -81,8 +81,12 @@ export class OvernightModalPage implements OnInit {
           text: 'Done',
           handler: () => {
             console.log('Done clicked');
-            let overnightData = new OvernightSleepData(this.getStartTime(), this.getEndTime());
-            console.log(this.startTime);
+            let sleepData = new SleepData(new Date());
+            //console.log(sleepData);
+            var obj = {'id': sleepData.id.toString(), 'loggedAt': sleepData.loggedAt.toString(), 'sleepStart': this.getStartTime().toString(), 'sleepEnd': this.getEndTime().toString()};
+            //console.log(obj['startTime']);
+            let overnightData = new OvernightSleepData(obj);
+            //console.log(overnightData);
             this.sleepService.logOvernightData(overnightData);
             //console.log(SleepService.AllOvernightData[2].dateString());
             this.dismiss();
@@ -121,6 +125,7 @@ export class OvernightModalPage implements OnInit {
     // return await setTimeout(()=> inputAlert.present(),1000);
     const inputToast = await this.toastController.create({
       message: 'Please select a start and end time.',
+      position: 'top',
       duration: 2000
     });
     inputToast.present();
