@@ -14,16 +14,16 @@ export class Tab3Page {
   Data:StanfordSleepinessData[] = [];
 
   constructor(private modalController: ModalController, public sleepService:SleepService) {
-    //this.Data = SleepService.AllSleepinessData;
-    this.sleepService.getAllSleepinessData().then(result => {
-      console.log(result);
-      if (result) {
-        Array.from(result).map((item)=>{
-          console.log(item);
-          this.Data.push(new StanfordSleepinessData(item));
-        });
-      }
-    });
+    this.Data = SleepService.AllSleepinessData;
+    // this.sleepService.getAllSleepinessData().then(result => {
+    //   console.log(result);
+    //   if (result) {
+    //     Array.from(result).map((item)=>{
+    //       console.log(item);
+    //       this.Data.push(new StanfordSleepinessData(item));
+    //     });
+    //   }
+    // });
     console.log(this.Data);
   }
 
@@ -31,6 +31,17 @@ export class Tab3Page {
     const modal = await this.modalController.create({
       component: SleepinessModalPage
     });
-    return await modal.present();
+    await modal.present();
+    // this.Data = [];
+    // this.sleepService.getAllSleepinessData().then(result => {
+    //   console.log(result);
+    //   if (result) {
+    //     Array.from(result).map((item)=>{
+    //       console.log(item);
+    //       this.Data.push(new StanfordSleepinessData(item));
+    //     });
+    //   }
+    // });
   }
+
 }

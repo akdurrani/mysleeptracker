@@ -13,16 +13,16 @@ export class Tab2Page {
   Data:OvernightSleepData[] = [];
 
   constructor(private modalController: ModalController, public sleepService:SleepService) {
-    //this.Data = SleepService.AllOvernightData;
-    this.sleepService.getAllOvernightData().then(result => {
-      console.log(result);
-      if (result) {
-        Array.from(result).map((item)=>{
-          console.log(item);
-          this.Data.push(new OvernightSleepData(item));
-        });
-      }
-    });
+    this.Data = SleepService.AllOvernightData;
+    // this.sleepService.getAllOvernightData().then(result => {
+    //   console.log(result);
+    //   if (result) {
+    //     Array.from(result).map((item)=>{
+    //       console.log(item);
+    //       this.Data.push(new OvernightSleepData(item));
+    //     });
+    //   }
+    // });
     console.log(this.Data);
   }
 
@@ -37,7 +37,17 @@ export class Tab2Page {
    const modal = await this.modalController.create({
      component: OvernightModalPage
    });
-   return await modal.present();
+   await modal.present();
+   // this.Data = [];
+   // this.sleepService.getAllOvernightData().then(result => {
+   //   console.log(result);
+   //   if (result) {
+   //     Array.from(result).map((item)=>{
+   //       console.log(item);
+   //       this.Data.push(new OvernightSleepData(item));
+   //     });
+   //   }
+   // });
  }
 
     // generateLogItems() {

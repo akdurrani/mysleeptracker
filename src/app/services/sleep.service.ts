@@ -19,7 +19,7 @@ export class SleepService {
   constructor(private storage: Storage) {
   	if(SleepService.LoadDefaultData) {
       //this.addDefaultData();
-      //this.addData();
+      this.addData();
   		SleepService.LoadDefaultData = false;
   	}
   }
@@ -38,15 +38,36 @@ export class SleepService {
     //     SleepService.AllSleepData.push(value);
     //   }
     // });
-    this.storage.forEach((key) => {
-      console.log(key);
-      this.storage.get(key).then((value) => {
-        if(key == 'overnight')
-          SleepService.AllOvernightData.push(value);
-        else if(key == 'sleepiness')
-          SleepService.AllSleepinessData.push(value);
-        SleepService.AllSleepData.push(value);
-      });
+    // this.storage.forEach((key) => {
+    //   console.log(key);
+    //   this.storage.get(key).then((value) => {
+    //     if(key == 'overnight')
+    //       SleepService.AllOvernightData.push(value);
+    //     else if(key == 'sleepiness')
+    //       SleepService.AllSleepinessData.push(value);
+    //     SleepService.AllSleepData.push(value);
+    //   });
+    // });
+    this.getAllOvernightData().then(result => {
+      console.log(result);
+      if (result) {
+        Array.from(result).map((item)=>{
+          console.log(item);
+          SleepService.AllOvernightData.push(new OvernightSleepData(item));
+          SleepService.AllSleepData.push(new OvernightSleepData(item));
+        });
+      }
+    });
+
+    this.getAllSleepinessData().then(result => {
+      console.log(result);
+      if (result) {
+        Array.from(result).map((item)=>{
+          console.log(item);
+          SleepService.AllSleepinessData.push(new StanfordSleepinessData(item));
+          SleepService.AllSleepData.push(new StanfordSleepinessData(item));
+        });
+      }
     });
   }
 
@@ -57,8 +78,8 @@ export class SleepService {
   }
 
   public logOvernightData(sleepData:OvernightSleepData) {
-  	// SleepService.AllSleepData.push(sleepData);
-  	// SleepService.AllOvernightData.push(sleepData);
+  	SleepService.AllSleepData.push(sleepData);
+  	SleepService.AllOvernightData.push(sleepData);
     // this.storage.set('overnight', sleepData);
     // this.storage.get('overnight').then((value)=> {
     //   console.log(value);
@@ -75,8 +96,8 @@ export class SleepService {
   }
 
   public logSleepinessData(sleepData:StanfordSleepinessData) {
-  	// SleepService.AllSleepData.push(sleepData);
-  	// SleepService.AllSleepinessData.push(sleepData);
+  	SleepService.AllSleepData.push(sleepData);
+  	SleepService.AllSleepinessData.push(sleepData);
     // this.storage.set('sleepiness', sleepData);
     return this.getAllSleepinessData().then(result => {
       if (result) {
