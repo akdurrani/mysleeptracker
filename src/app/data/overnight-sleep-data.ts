@@ -5,13 +5,13 @@ export class OvernightSleepData extends SleepData {
 	private sleepEnd:Date;
 
 	//constructor(sleepStart:Date, sleepEnd:Date) {
-	constructor(objectModel:Object){
-		console.log(objectModel.loggedAt);
+	constructor(objectModel:{}){
+		console.log(objectModel['loggedAt']);
 		super(new Date(objectModel['loggedAt']));
 		this.sleepStart = new Date(objectModel['sleepStart']);
 		this.sleepEnd = new Date(objectModel['sleepEnd']);
-		this.id = objectModel.id;
-		console.log(objectModel.sleepStart);
+		this.id = objectModel["id"];
+		//console.log(objectModel.sleepStart);
 	}
 
 	summaryString():string {

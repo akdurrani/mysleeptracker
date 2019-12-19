@@ -16,11 +16,11 @@ export class StanfordSleepinessData extends SleepData {
 	private loggedValue:number;
 
 	//constructor(loggedValue:number, loggedAt:Date) {
-	constructor(objectModel:Object){
+	constructor(objectModel:{}){
 		super(new Date(objectModel['loggedAt']));
 		//super();
 		this.loggedValue = objectModel['loggedValue'];
-		this.id = objectModel.id;
+		this.id = objectModel["id"];
 	}
 
 	summaryString():string {
